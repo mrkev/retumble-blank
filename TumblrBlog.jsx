@@ -11,7 +11,7 @@ const html_insert = html => props => {
   props = props || {}
   return (
     <div {... props}
-         dangerouslySetInnerHTML={{__html: html}}>
+      dangerouslySetInnerHTML={{__html: html}}>
     </div>
   )
 }
@@ -25,7 +25,6 @@ class Post {
     // calculate them fast enough)
     try { this.NoteCount = parseInt(this.NoteCount) }
     catch (e) { this.NoteCount = false }
-
   }
 }
 
