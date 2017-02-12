@@ -6,42 +6,14 @@ import ChatPost  from './post/chat.jsx'
 import TextPost  from './post/text.jsx'
 import AudioPost from './post/audio.jsx'
 
+import Header    from './part/header.jsx'
+import Footer    from './part/footer.jsx'
+
 import React from 'react'
+
 
 require('normalize.css');
 require("./main.css");
-
-/** Includes: Blog title, links to pages and description */
-class Header extends React.Component {
-  render() { return (
-    <header>
-      <h1><a href="/">{this.props.Title}</a></h1>
-
-      {!!this.props.Description &&
-          <span dangerouslySetInnerHTML={{__html: this.props.Description}}>
-          </span>
-        }
-
-      <nav>
-
-        {!!this.props.Pages &&
-          this.props.Pages.map((page, i) =>
-            <a href={page.URL} style={{marginRight:".5em"}} key={i}>{page.Label}</a>
-        )}
-
-        {!!this.props.AskEnabled &&
-          <a href="/ask" style={{marginRight:".5em"}}>ask</a>
-        }
-
-        {!!this.props.SubmissionsEnabled &&
-          <a href="/submit" style={{marginRight:".5em"}}>{this.props.SubmitLabel}</a>
-        }
-
-      </nav>
-
-    </header>
-  )}
-}
 
 /** Pagination shown on post-list pages (like the index page of the blog, for example) */
 class Pagination extends React.Component {
@@ -81,40 +53,41 @@ class PermalinkPagination extends React.Component {
   )}
 }
 
-/** Includes: theme attribution and search field */
-class Footer extends React.Component {
-  render() { return (
-    <footer>
-      <form action="/search" method="get" id="searchform">
-        <input type="text" name="q"></input>
-      </form>
-    </footer>
-  )}
-}
-
 /**
  * The Blog. This is the only class that gets "manually" appended to the HTML.
  * Recieves the JSON object from feather.html
  */
 export default class Blog extends React.Component {
-  render() { return !this.props.Posts ? <h1>RIP</h1> : (
+
+  postElement(post) {
+    if (!post) return null;
+
+    switch (post.PostType) {
+
+      /** Photosets have type photo, but get passed as video smh */
+      case "photo": return <PhotoPost {... post}/>
+      case "quote": return <QuotePost {... post}/>
+      case "video": return <VideoPost {... post}/>
+      case  "link": return <LinkPost  {... post}/>
+      case  "chat": return <ChatPost  {... post}/>
+      case  "text": return <TextPost  {... post}/>
+      case "audio": return <AudioPost {... post}/>
+      default: return null;
+    }
+  }
+
+
+  render() { return (
     <div>
+
       <Header {... this.props} />
+
       <div id="content">
-        {this.props.Posts.map(function (post, i) {
 
-          switch (post.PostType) {
-
-            /** Photosets have type photo, but get passed as video smh */
-            case "photo": return <PhotoPost {... post} key={i}/>
-            case "quote": return <QuotePost {... post} key={i}/>
-            case "video": return <VideoPost {... post} key={i}/>
-            case  "link": return <LinkPost  {... post} key={i}/>
-            case  "chat": return <ChatPost  {... post} key={i}/>
-            case  "text": return <TextPost  {... post} key={i}/>
-            case "audio": return <AudioPost {... post} key={i}/>
-          }
-        })}
+        {this.postElement(this.props.Post) ||
+         this.props.Posts.map((post, i) =>
+          <div key={i}>{this.postElement(post)}</div>
+        )}
 
         {!!this.props.Pagination &&
           <Pagination {... this.props.Pagination}/>
