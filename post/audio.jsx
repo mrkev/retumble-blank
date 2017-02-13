@@ -3,7 +3,6 @@ import React from 'react'
 
 export default class AudioPost extends React.Component {
   render() { return (
-    <div className="post">
       <div className="audio">
 
         { this.props.audioPlayer(120, 40) }
@@ -24,11 +23,6 @@ export default class AudioPost extends React.Component {
           <p><a href="{this.props.ExternalAudioURL}">{this.props["lang:Download"]}</a></p>
         }
 
-        <PostMeta {... this.props}/>
       </div>
-
-      <PostNotes PostNotes={this.props.PostNotes} />
-
-    </div>
   )}
 }

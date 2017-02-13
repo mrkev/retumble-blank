@@ -3,19 +3,9 @@ import React from 'react'
 
 export default class PhotoPost extends React.Component {
   render() { return (
-    <div className="post">
-      <div className="photo">
-
-        {this.props.photos()}
-        {this.props.body()}
-
-        <PostMeta {... this.props}/>
-      </div>
-
-      {!!this.props.PostNotes &&
-        <PostNotes PostNotes={this.props.PostNotes} />
-      }
-
+    <div className="photo">
+      {this.props.photos()}
+      {this.props.body()}
     </div>
   )}
 }

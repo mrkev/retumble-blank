@@ -5,9 +5,9 @@ import LinkPost  from './post/link.jsx'
 import ChatPost  from './post/chat.jsx'
 import TextPost  from './post/text.jsx'
 import AudioPost from './post/audio.jsx'
-
 import Header    from './part/header.jsx'
 import Footer    from './part/footer.jsx'
+import Post      from './post/post.jsx'
 
 import React from 'react'
 
@@ -86,7 +86,9 @@ export default class Blog extends React.Component {
 
         {this.postElement(this.props.Post) ||
          this.props.Posts.map((post, i) =>
-          <div key={i}>{this.postElement(post)}</div>
+          <Post {...post} key={i}>
+            {this.postElement(post)}
+          </Post>
         )}
 
         {!!this.props.Pagination &&
