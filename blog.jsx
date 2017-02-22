@@ -1,18 +1,13 @@
-import PhotoPost  from './post/photo.jsx'
-import QuotePost  from './post/quote.jsx'
-import VideoPost  from './post/video.jsx'
-import LinkPost   from './post/link.jsx'
-import ChatPost   from './post/chat.jsx'
-import TextPost   from './post/text.jsx'
-import AudioPost  from './post/audio.jsx'
+import Pagination from './part/pagination.jsx'
 import Header     from './part/header.jsx'
 import Footer     from './part/footer.jsx'
 import Post       from './post/post.jsx'
-import Pagination from './part/pagination.jsx'
 import React from 'react'
 
 require('normalize.css');
 require("./main.css");
+
+const infinite_scroll = true;
 
 /**
  * The Blog. This is the only class that gets "manually" appended to the HTML.
@@ -20,44 +15,27 @@ require("./main.css");
  */
 export default class Blog extends Spur.Blog {
 
-  postElement(post) {
-    if (!post) return null;
+  render() { console.log(this)
 
-    switch (post.PostType) {
+    const index = !!this.props.Index
+    const perma = !!this.props.Content
 
-      /** Photosets have type photo, but get passed as video smh */
-      case "photo": return <PhotoPost {... post}/>
-      case "quote": return <QuotePost {... post}/>
-      case "video": return <VideoPost {... post}/>
-      case  "link": return <LinkPost  {... post}/>
-      case  "chat": return <ChatPost  {... post}/>
-      case  "text": return <TextPost  {... post}/>
-      case "audio": return <AudioPost {... post}/>
-      default: return null;
-    }
-  }
+    const body =
+      (index &&  infinite_scroll) ? <Spur.InfiniteIndex PostComponent={Post} Index={this.props.Index} /> :
+      (index && !infinite_scroll) ? "TODO" :
+      (perma) ? <Post {... this.props.Content.Post} /> : null
 
-  render() { console.log(this); return (
+    const pagination =
+      (index && infinite_scroll) ? null :
+      (index) ? <Pagination.Index {... this.props.Index.Pagination}/> :
+      (perma) ? <Pagination.Permalink {... this.props.Content.Pagination}/> : null
+
+    return (
     <div>
-
       <Header {... this.props} />
-
-      <div id="content">
-
-        {this.postElement(this.props.Post) ||
-         this.state.Posts.map((post, i) =>
-          <Post {...post} key={i}>
-            {this.postElement(post)}
-          </Post>
-        )}
-
-        {!!this.props.Pagination && <Pagination.Index {... this.props.Pagination}/> }
-        {!!this.props.PermalinkPagination && <Pagination.Permalink {... this.props.PermalinkPagination}/> }
-
-      </div>
-
+      { body }
+      { pagination }
       <Footer />
-
     </div>
   )}
 }
