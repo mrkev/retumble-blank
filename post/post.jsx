@@ -11,6 +11,7 @@ export default class Post extends React.Component {
 
 			{this.props.likebutton()}
       {this.props.reblogbutton()}
+      //{this.props.testlike}
 
       <PostNotes PostNotes={this.props.PostNotes} />
     </div>
