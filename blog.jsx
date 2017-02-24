@@ -13,13 +13,13 @@ const infinite_scroll = true;
  * The Blog. This is the only class that gets "manually" appended to the HTML.
  * Recieves the JSON object from feather.html
  */
-export default class Blog extends Spur.Blog {
+export default class Blog extends React.Component {
 
   render() { console.log(this)
 
     const index = !!this.props.Index
     const perma = !!this.props.Content
-
+    console.log(this)
     const body =
       (index &&  infinite_scroll) ? <Spur.InfiniteIndex PostComponent={Post} Index={this.props.Index} /> :
       (index && !infinite_scroll) ? "TODO" :
