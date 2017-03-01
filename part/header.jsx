@@ -10,13 +10,11 @@ export default class Header extends React.Component {
 
       <nav>
 
-        {!!this.props.Pages &&
-          this.props.Pages.map((page, i) =>
-            <a href={page.URL} style={{marginRight:".5em"}} key={i}>{page.Label}</a>
-        )}
+        { this.props.Pages.map((page, i) =>
+            <a href={page.URL} key={i}>{page.Label}</a>)
+        }
 
       </nav>
-
     </header>
   )}
 }

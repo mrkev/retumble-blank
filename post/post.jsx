@@ -1,4 +1,3 @@
-import { PostMeta, PostNotes, PrePost } from './_includes.jsx'
 import PhotoPost  from './photo.jsx'
 import QuotePost  from './quote.jsx'
 import VideoPost  from './video.jsx'
@@ -25,13 +24,24 @@ export default class Post extends React.Component {
           default: return null } })()
       }
 
-      <PostMeta {... this.props}/>
+      { this.props.Context !== 'page' && 
+        <div className="postmeta">
+          { this.props.TimeAgo &&
+            <a href={this.props.Permalink}>
+              {this.props.TimeAgo}
+            </a>
+          }
+            <a href={this.props.Permalink}>
+              {Spur.lang.Notes.toLowerCase()} ({this.props.NoteCount})
+            </a>
+        </div>
+      }
 
 			{/* this.props.likebutton() */ }
       {/* this.props.reblogbutton() */}
       {/* //{this.props.testlike */ }
 
-      <PostNotes PostNotes={this.props.PostNotes} />
+      { this.props.Context !== 'page' && this.props.postNotes() }
     </div>
   ) }
 }

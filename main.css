@@ -6,3 +6,23 @@ body {
 .post {
   margin: 100px 0px;
 }
+
+nav a {
+  margin-right: 0.5em;
+}
+
+.postmeta a {
+  margin-right: 0.5em;
+}
+
+header {
+  margin: 50px 0px;
+}
+
+footer {
+  margin: 100px 0px;
+}
+
+#blog {
+  max-width: 500px;
+}
