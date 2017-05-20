@@ -24,7 +24,7 @@ export default class Post extends React.Component {
           default: return null } })()
       }
 
-      { this.props.Context !== 'page' && 
+      { this.props.Context !== 'page' &&
         <div className="postmeta">
           { this.props.TimeAgo &&
             <a href={this.props.Permalink}>
@@ -42,6 +42,9 @@ export default class Post extends React.Component {
       {/* //{this.props.testlike */ }
 
       { this.props.Context !== 'page' && this.props.postNotes() }
+
+      <Spur.PostNotes {... this.props} />
+
     </div>
   ) }
 }

@@ -13,6 +13,10 @@ require("./main.css");
  */
 export default class Blog extends React.Component {
 
+//  static options = {
+//    code_posts : true,
+//  }
+
   constructor (props) {
     super(props)
     this.state = {
@@ -26,7 +30,10 @@ export default class Blog extends React.Component {
     const page = this.props.PageType === 'page'
 
     const body =
-      (index) ? <Spur.InfiniteIndex PostComponent={Post} Index={this.props.Index} autoScroll={this.state.infinite_scroll} /> :
+      (index) ? <Spur.InfiniteIndex
+        PostComponent={Post}
+        Index={this.props.Index}
+        autoScroll={this.state.infinite_scroll} /> :
       (post || page) ? <Post {... this.props.Content.Post}/> : null;
 
     const pagination =
