@@ -2,7 +2,8 @@ import Pagination from './part/pagination.jsx'
 import Header     from './part/header.jsx'
 import Footer     from './part/footer.jsx'
 import Post       from './post/post.jsx'
-import React from 'react'
+import React      from 'react'
+import Spur       from 'spur'
 
 require('normalize.css');
 require("./main.css");
