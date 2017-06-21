@@ -5,8 +5,8 @@ import LinkPost   from './link.jsx'
 import ChatPost   from './chat.jsx'
 import TextPost   from './text.jsx'
 import AudioPost  from './audio.jsx'
-import React      from 'react'
-import Spur       from 'spur'
+import React from 'react'
+
 export default class Post extends React.Component {
 
   render() { return (
