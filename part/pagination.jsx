@@ -1,4 +1,5 @@
 import React from 'react'
+import Spur from 'spur'
 
 /** Pagination shown on post-list pages (like the index page of the blog, for example) */
 class Pagination extends React.Component {
