@@ -1,41 +1,22 @@
 {
   "name": "react-blank",
-  "version": "1.0.0",
-  "description": "_by [eric hu](http://erichu.tumblr.com), react edit by [kevin chavez](http://shoesnosocks.tumblr.com)_",
+  "version": "0.0.0",
+  "description": "A sample react tumblr theme",
   "main": "blog.jsx",
   "dependencies": {
-    "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^0.28.1",
-    "eslint": "^3.19.0",
-    "eslint-plugin-react": "^7.0.1",
     "normalize.css": "^7.0.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-hot-loader": "^3.0.0-beta.6",
-    "style-loader": "^0.17.0",
-    "webpack": "^2.5.1",
-    "webpack-dev-middleware": "^1.10.2",
-    "webpack-hot-middleware": "^2.18.0"
+    "spur": "git+https://github.com/mrkev/spur.git"
   },
-  "scripts": {
-    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
-    "start": "http-server",
-    "webpack": "webpack",
-    "lint": "eslint ."
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrkev/react-feather.git"
+    "url": "git+https://github.com/mrkev/react-blank.git"
   },
   "author": "Kevin Chavez <keh222@cornell.edu>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrkev/react-feather/issues"
+    "url": "https://github.com/mrkev/react-blank/issues"
   },
-  "homepage": "https://github.com/mrkev/react-feather#readme"
+  "homepage": "https://github.com/mrkev/react-blank#readme"
 }
