@@ -1,5 +1,5 @@
 import React from 'react'
-import Spur from 'spur'
+import {Strings as S} from 'spur'
 
 /** Pagination shown on post-list pages (like the index page of the blog, for example) */
 class Pagination extends React.Component {
@@ -8,7 +8,7 @@ class Pagination extends React.Component {
 
       { this.props.Next &&
         <a href={this.props.Next}>
-          &larr; {Spur.lang.Older.toLowerCase()}
+        &larr; {S['Older'].toLowerCase()}
         </a>
       }
 
@@ -18,7 +18,7 @@ class Pagination extends React.Component {
 
       { this.props.Previous &&
         <a href={this.props.Previous}>
-          {Spur.lang.Newer.toLowerCase()} &rarr;
+        {S['Newer'].toLowerCase()} &rarr;
         </a>
       }
 

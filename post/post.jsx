@@ -6,13 +6,13 @@ import ChatPost   from './chat.jsx'
 import TextPost   from './text.jsx'
 import AudioPost  from './audio.jsx'
 import React from 'react'
-import Spur from 'spur'
+import { Strings as S, PostNotes } from 'spur'
+import spur from 'spur'
 
 export default class Post extends React.Component {
 
   render() { return (
     <div className="post">
-
       { (() => { switch (this.props.PostType) {
           /** Photosets have type photo, but get passed as video smh */
           case "photo": return <PhotoPost {... this.props}/>
@@ -33,7 +33,7 @@ export default class Post extends React.Component {
             </a>
           }
             <a href={this.props.Permalink}>
-              {Spur.lang.Notes.toLowerCase()} ({this.props.NoteCount})
+          {S['Notes'].toLowerCase()} ({this.props.NoteCount})
             </a>
         </div>
       }
@@ -44,7 +44,7 @@ export default class Post extends React.Component {
 
       { this.props.Context !== 'page' && this.props.postNotes() }
 
-      <Spur.PostNotes {... this.props} />
+      <PostNotes {... this.props} />
 
     </div>
   ) }

@@ -2,8 +2,8 @@ import Pagination from './part/pagination.jsx'
 import Header     from './part/header.jsx'
 import Footer     from './part/footer.jsx'
 import Post       from './post/post.jsx'
-import React from 'react'
-import Spur from 'spur'
+import React      from 'react'
+import { InfiniteIndex } from 'spur'
 
 require('normalize.css');
 require("./main.css");
@@ -31,7 +31,7 @@ export default class Blog extends React.Component {
     const page = this.props.PageType === 'page'
 
     const body =
-      (index) ? <Spur.InfiniteIndex
+      (index) ? <InfiniteIndex
         PostComponent={Post}
         Index={this.props.Index}
         autoScroll={this.state.infinite_scroll} /> :
@@ -44,12 +44,13 @@ export default class Blog extends React.Component {
       (page)  ? null : null;
 
     return (
-    <div>
-      <Header {... this.props} />
-      { body }
-      { pagination }
-      <Footer />
-    </div>
-  )}
+      <div>
+        <Header {... this.props} />
+        { body }
+        { pagination }
+        <Footer />
+      </div>
+    )
+  }
 }
 

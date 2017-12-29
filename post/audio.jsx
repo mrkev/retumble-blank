@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Spur from 'spur'
+import {Strings as S} from 'spur'
 
 export default class AudioPost extends React.Component {
   render() { return (
@@ -16,7 +16,7 @@ export default class AudioPost extends React.Component {
       { this.props.body() }
 
       { this.props.ExternalAudio &&
-        <p><a href="{this.props.ExternalAudioURL}">{Spur.lang.Download}</a></p>
+        <p><a href="{this.props.ExternalAudioURL}">{S['Download']}</a></p>
       }
 
     </div>

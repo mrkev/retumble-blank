@@ -3,11 +3,6 @@
   "version": "0.0.0",
   "description": "A sample react tumblr theme",
   "main": "blog.jsx",
-  "dependencies": {
-    "normalize.css": "^7.0.0",
-    "react": "^15.5.4",
-    "spur": "git+https://github.com/mrkev/spur.git"
-  },
   "scripts": {},
   "repository": {
     "type": "git",
@@ -18,5 +13,16 @@
   "bugs": {
     "url": "https://github.com/mrkev/react-blank/issues"
   },
-  "homepage": "https://github.com/mrkev/react-blank#readme"
+  "homepage": "https://github.com/mrkev/react-blank#readme",
+  "dependencies": {
+    "normalize.css": "^7.0.0",
+    "react": "^15.5.4",
+    "spur": "file:../spur"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react-hot-loader": "^3.1.3"
+  }
 }

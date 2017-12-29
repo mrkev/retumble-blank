@@ -1,35 +1,15 @@
-## react-feather ![NPM version](https://img.shields.io/npm/v/react-feather.svg?style=flat)
+# react-blank
 
-_by [eric hu](http://erichu.tumblr.com), react edit by [kevin chavez](http://shoesnosocks.tumblr.com)_
+_by [kevin chavez](http://shoesnosocks.tumblr.com)_
 
-### Installation
-```bash
-$ npm install react-feather
-```
+This is a [Spur](http://github.com/mrkev/spur) theme for Tumblr.
+In fact, it's the default spur theme created when you run `spur init`.
 
-### Example
-```js
-var reactFeather = require('react-feather');
-```
+## To run
 
-### API
-check this file: `blog.jsx`
+1. Install [Spur](http://github.com/mrkev/spur)
+1. Clone and cd into this project
+1. `spur run`
 
-### Contributing
-- Fork this Repo first
-- Clone your Repo
-- Install dependencies by `$ npm install`
-- Checkout a feature branch
-- Feel free to add your features
-- Make sure your features are fully tested
-- Publish your local branch, Open a pull request
-- Enjoy hacking <3
-
-### ISC license
-Copyright (c) 2017 Kevin Chavez &lt;keh222@cornell.edu&gt;
-
-
-
----
-![docor]()
-built upon love by [docor](git+https://github.com/turingou/docor.git) v0.3.0
+_See [Spur](http://github.com/mrkev/spur)'s docs for more info on using
+spur themes.
