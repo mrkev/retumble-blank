@@ -1,19 +1,19 @@
 {
-  "name": "react-blank",
+  "name": "retumble-blank",
   "version": "0.0.0",
   "description": "A sample react tumblr theme",
   "main": "blog.jsx",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrkev/react-blank.git"
+    "url": "git+https://github.com/mrkev/retumble-blank.git"
   },
   "author": "Kevin Chavez <keh222@cornell.edu>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrkev/react-blank/issues"
+    "url": "https://github.com/mrkev/retumble-blank/issues"
   },
-  "homepage": "https://github.com/mrkev/react-blank#readme",
+  "homepage": "https://github.com/mrkev/retumble-blank#readme",
   "dependencies": {
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
