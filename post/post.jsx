@@ -6,8 +6,8 @@ import ChatPost   from './chat.jsx'
 import TextPost   from './text.jsx'
 import AudioPost  from './audio.jsx'
 import React from 'react'
-import { Strings as S, PostNotes } from 'spur'
-import spur from 'spur'
+import { Strings as S, PostNotes } from 'retumble'
+import retumble from 'retumble'
 
 export default class Post extends React.Component {
 

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {Strings as S} from 'spur'
+import { Strings as S } from 'retumble'
 
 export default class AudioPost extends React.Component {
   render() { return (

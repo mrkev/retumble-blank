@@ -3,7 +3,7 @@ import Header     from './part/header.jsx'
 import Footer     from './part/footer.jsx'
 import Post       from './post/post.jsx'
 import React      from 'react'
-import { InfiniteIndex } from 'spur'
+import { InfiniteIndex } from 'retumble'
 
 require('normalize.css');
 require("./main.css");

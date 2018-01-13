@@ -17,7 +17,7 @@
   "dependencies": {
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
-    "spur": "file:../spur"
+    "retumble": "file:../retumble"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
