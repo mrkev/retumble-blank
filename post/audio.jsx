@@ -1,6 +1,6 @@
 
-import React from 'react'
-import { Strings as S } from 'retumble'
+import React from 'react';
+import { Strings as S } from 'retumble';
 
 export default class AudioPost extends React.Component {
   render() { return (
@@ -13,12 +13,12 @@ export default class AudioPost extends React.Component {
         <li>{this.props.PlayCountWithLabel}</li>
       </ul>
 
-      { this.props.body() }
+      { this.props.Caption }
 
       { this.props.ExternalAudio &&
         <p><a href="{this.props.ExternalAudioURL}">{S['Download']}</a></p>
       }
 
     </div>
-  )}
+  );}
 }

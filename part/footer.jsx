@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 /** Includes: theme attribution and search field */
 export default class Footer extends React.Component {
@@ -8,5 +8,5 @@ export default class Footer extends React.Component {
         <input type="text" name="q"></input>
       </form>
     </footer>
-  )}
+  );}
 }
