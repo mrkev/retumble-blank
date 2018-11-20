@@ -16,7 +16,7 @@
   "homepage": "https://github.com/mrkev/retumble-blank#readme",
   "dependencies": {
     "@types/react-hot-loader": "^4.1.0",
-    "normalize.css": "^7.0.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.2.0",
     "react-hot-loader": "^4.3.12",
     "retumble": "file:../retumble"
