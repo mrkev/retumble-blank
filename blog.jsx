@@ -1,22 +1,18 @@
-import Pagination from './part/pagination.jsx';
-import Header from './part/header.jsx';
-import Footer from './part/footer.jsx';
-import Post from './post/post.jsx';
-import React from 'react';
-import { InfiniteIndex } from 'retumble';
+import React from "react";
+import Pagination from "./part/pagination.jsx";
+import Header from "./part/header.jsx";
+import Footer from "./part/footer.jsx";
+import Post from "./post/post.jsx";
+import InfiniteIndex from "./components/InfiniteIndex.jsx";
 
-require('normalize.css');
-require('./main.css');
+require("normalize.css");
+require("./main.css");
 
 /**
  * The Blog. This is the only class that gets "manually" appended to the HTML.
  * Recieves the JSON object from feather.html
  */
 export default class Blog extends React.Component {
-  //  static options = {
-  //    code_posts : true,
-  //  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -25,9 +21,9 @@ export default class Blog extends React.Component {
   }
 
   render() {
-    const index = this.props.Content.Type === 'index';
-    const post = this.props.Content.Type === 'post';
-    const page = this.props.Content.Type === 'page';
+    const index = this.props.Content.Type === "index";
+    const post = this.props.Content.Type === "post";
+    const page = this.props.Content.Type === "page";
 
     const body = index ? (
       <InfiniteIndex
