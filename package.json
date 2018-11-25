@@ -19,6 +19,8 @@
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-hot-loader": "^4.3.12",
+    "react-progress-button": "^5.1.0",
+    "react-waypoint": "^8.1.0",
     "retumble": "file:../retumble"
   },
   "devDependencies": {
