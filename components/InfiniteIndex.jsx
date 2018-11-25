@@ -1,7 +1,6 @@
 // @flow
 import React from "react";
 
-import "whatwg-fetch"; // For getting next pages
 import ProgressButton from "react-progress-button";
 import Waypoint from "react-waypoint";
 import { getPage } from "retumble";
@@ -13,7 +12,7 @@ import type { Pagination } from "../part/Pagination";
 type Props = {
   index: Object,
   postComponent: Object,
-  autoScroll: boolean,
+  autoScroll: boolean
 };
 
 type State = Object;

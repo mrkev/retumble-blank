@@ -8,7 +8,7 @@ export default class PostNotes extends Component {
   state = {
     drawerIsOpen: false,
     width: 300,
-    notesHTML: "",
+    notesHTML: ""
   };
 
   openDrawer() {
@@ -33,8 +33,8 @@ export default class PostNotes extends Component {
         background: "#EEE",
         overflow: "hidden",
         boxShadow:
-          "rgba(0, 0, 0, 0.12) 0px 0px 20px, rgba(0, 0, 0, 0.15) 0px 6px 6px",
-      },
+          "rgba(0, 0, 0, 0.12) 0px 0px 20px, rgba(0, 0, 0, 0.15) 0px 6px 6px"
+      }
     };
 
     document.body.style.overflow = this.state.drawerIsOpen ? "hidden" : "auto";
@@ -46,7 +46,7 @@ export default class PostNotes extends Component {
           width={400}
           config={{
             stiffness: 350,
-            damping: 40,
+            damping: 40
           }}
           {...drawerProps}
           open={drawerIsOpen}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Strings as S } from 'retumble';
+import React from "react";
+import { Strings as S } from "retumble";
 
 /** Pagination shown on post-list pages (like the index page of the blog, for example) */
 class Pagination extends React.Component {
@@ -7,7 +7,7 @@ class Pagination extends React.Component {
     return (
       <div id="navigation">
         {this.props.Next && (
-          <a href={this.props.Next}>&larr; {S['Older'].toLowerCase()}</a>
+          <a href={this.props.Next}>&larr; {S["Older"].toLowerCase()}</a>
         )}
 
         {this.props.CurrentPage && (
@@ -28,5 +28,5 @@ class Pagination extends React.Component {
 
 export default {
   Permalink: Pagination,
-  Index: Pagination,
+  Index: Pagination
 };

@@ -16,7 +16,7 @@ export default class Blog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      infinite_scroll: true,
+      infinite_scroll: true
     };
   }
 
