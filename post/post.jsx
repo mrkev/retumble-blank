@@ -44,6 +44,7 @@ export default class Post extends React.Component {
               <a href={this.props.Permalink}>{this.props.TimeAgo}</a>
             )}
             <a href={this.props.Permalink}>
+              PERMALINK
               {/* {S['Notes'].toLowerCase()} ({this.props.NoteCount}) */}
             </a>
           </div>

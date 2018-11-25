@@ -16,7 +16,7 @@ export default class Blog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      infinite_scroll: true
+      infiniteScroll: false,
     };
   }
 
@@ -28,19 +28,21 @@ export default class Blog extends React.Component {
     const body = index ? (
       <InfiniteIndex
         postComponent={Post}
-        index={this.props.Content}
-        autoScroll={this.state.infinite_scroll}
+        content={this.props.Content}
+        fetchOnScroll={this.state.infiniteScroll}
+        showMoreButton={false}
       />
     ) : post || page ? (
       <Post {...this.props.Content.Post} />
     ) : null;
 
     const pagination =
-      index && this.state.infinite_scroll ? null : index ? (
-        <Pagination.Index {...this.props.Index.Pagination} />
-      ) : post ? (
-        <Pagination.Permalink {...this.props.Content.Pagination} />
-      ) : page ? null : null;
+      (index && this.state.infiniteScroll) || page ? null : (
+        <Pagination
+          type={this.props.Content.Type}
+          {...this.props.Content.Pagination}
+        />
+      );
 
     return (
       <div>

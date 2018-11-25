@@ -7,73 +7,99 @@ import { getPage } from "retumble";
 
 require("./InfiniteIndex.css");
 
-import type { Pagination } from "../part/Pagination";
-
 type Props = {
   index: Object,
   postComponent: Object,
-  autoScroll: boolean
+  fetchOnScroll: boolean,
+  showMoreButton: boolean,
 };
 
-type State = Object;
+type State = {
+  query: QueryState,
+  buttonText: string,
+  posts: Array<Object>,
+  pagination: {
+    Next: string,
+    Previous: string,
+    Current: number,
+    Total: number,
+  },
+};
+
+type QueryState = "" | "loading" | "success" | "error" | "disabled";
 
 export default class InfiniteIndex extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    // The Index object from the blog object
-    this.state = this.props.index;
-    // State of the loading button
-    this.state.query = ""; // '', loading, success, error or disabled
-    // Text on the loading button
-    this.state.buttonText = "more";
+    if (props.content.Type !== "index") {
+      throw new Error("InfiniteIndex was passed some non-index content!");
+    }
 
-    if (this.state.Pagination.CurrentPage >= this.state.Pagination.TotalPages) {
+    this.state = {};
+    this.state.posts = props.content.Posts;
+    this.state.pagination = props.content.Pagination;
+
+    if (this.state.pagination.Current >= this.state.pagination.Total) {
       this.state.query = "disabled";
       this.state.buttonText = "that's it!";
       return;
+    } else {
+      this.state.query = "";
+      this.state.buttonText = "more";
     }
   }
 
-  // todo; what happens when the end is reached
-  nextIndex() {
-    if (this.state.Pagination.CurrentPage >= this.state.Pagination.TotalPages) {
+  queryNextPage() {
+    // todo; what happens when the end is reached
+    if (this.state.pagination.Current >= this.state.pagination.Total) {
       return;
     }
+
     this.setState({ query: "loading" });
-    console.log("fetching", this.state.Pagination);
-    getPage(this.state.Pagination.Next)
+
+    getPage(this.state.pagination.Next)
       .catch(e => {
         console.error("error fetchig next index");
         console.error(e);
         this.setState({ query: "error" });
       })
       .then(blog => {
-        const index = blog.Content;
-        index.Posts = this.state.Posts.concat(index.Posts);
-        this.setState(index);
+        this.setState(prevState => ({
+          posts: prevState.posts.concat(blog.Content.Posts),
+          pagination: blog.Content.Pagination,
+        }));
         this.setState({ query: "" });
       });
   }
 
   render() {
     const PostComponent = this.props.postComponent;
+
+    const progressButton = () => (
+      <ProgressButton
+        onClick={this.queryNextPage.bind(this)}
+        state={this.state.query}
+      >
+        {this.state.buttonText}
+      </ProgressButton>
+    );
+
     return (
       <div id="content">
-        {this.state.Posts.map((post, i) => (
+        {this.state.posts.map((post, i) => (
           <PostComponent {...post} key={i} />
         ))}
-        <Waypoint
-          scrollableAncestor={window}
-          debug={false}
-          onEnter={this.nextIndex.bind(this)}
-        />
-        <ProgressButton
-          onClick={this.nextIndex.bind(this)}
-          state={this.state.query}
-        >
-          {this.state.buttonText}
-        </ProgressButton>
+        {this.props.fetchOnScroll && (
+          <Waypoint
+            scrollableAncestor={window}
+            debug={false}
+            onEnter={this.queryNextPage.bind(this)}
+          />
+        )}
+
+        {this.props.showMoreButton ||
+          (this.state.query === "loading" && progressButton())}
       </div>
     );
   }
